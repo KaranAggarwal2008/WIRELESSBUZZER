@@ -3,7 +3,8 @@ import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Audio } from 'expo-av';
 
 import db from '../config';
-
+import { NativeModules } from 'react-native';
+const { Yodo1MASAds } = NativeModules;
 class SoundButton extends React.Component {
   playSound = async () => {
     await Audio.Sound.createAsync(
@@ -12,11 +13,14 @@ class SoundButton extends React.Component {
       },
       { shouldPlay: true }
     );
+    Yodo1MASAds.initMasSdk()
+    Yodo1MASAds.showBannerAds();
   };
 
   isButtonPressed(buttonColor) {
     var time = new Date().getTime();
-
+    Yodo1MASAds.initMasSdk()
+    Yodo1MASAds.showBannerAds();
     var query = db.ref('teams/' + buttonColor + '/').update({
       isButtonPressed: true,
       timestamp: time,
@@ -31,6 +35,7 @@ class SoundButton extends React.Component {
           var buttonColor = this.props.color;
           this.isButtonPressed(buttonColor);
           this.playSound();
+          Yodo1MASAds.showRewardAds();
         }}>
         <Text style={styles.buttonText}>Press Me</Text>
       </TouchableOpacity>

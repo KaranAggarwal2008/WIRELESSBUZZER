@@ -16,7 +16,8 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import HomeScreen from './screens/HomeScreen';
 import BuzzerScreen from './screens/BuzzerScreen';
-
+import { NativeModules } from 'react-native';
+const { Yodo1MASAds } = NativeModules;
 export default class App extends React.Component {
   render() {
     return (

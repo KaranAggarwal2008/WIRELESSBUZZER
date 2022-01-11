@@ -26,3 +26,14 @@
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
   </application>
 </manifest>
+<manifest>
+	<application>
+	<!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+	<meta-data 
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:replace="android:label"
+tools:targetApi="n"
+		android:name="com.google.android.gms.ads.7BIPWedWIY"
+		android:value="ca-app-pub-4973750815225055~1773226069"/>
+	</application>
+</manifest>
